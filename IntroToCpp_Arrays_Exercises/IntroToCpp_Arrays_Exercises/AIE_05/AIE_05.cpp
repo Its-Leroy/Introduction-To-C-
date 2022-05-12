@@ -25,32 +25,36 @@ int main(int argc, char** argv)
 	//		c0, c1, c2, c3, c4,
 	// ------------------------------------------------------------------------
 
+	for (int i = 0; i != ROWS; i++)
+	{
+		int currentRow = i;
 
+		for (int i = 0; i < COLS; i++)
+		{
+			std::cout << grid2D[currentRow][i] << ", ";
+		}
+		std::cout << std::endl;
 
+	}
 
 	// ------------------------------------------------------------------------
-
-
-
-
-
-
 
 	// Task 2:
 	// Print all values in the grid using a single loop
 	// Expected output:
 	//		a0, a1, a2, a3, a4, b0, b1, b2, b3, b4, c0, c1, c2, c3, c4,
+// 
 	// ------------------------------------------------------------------------
 
-	for (int index = 0; index < ROWS * COLS; index++)
+	for (int index = 0; index < ROWS * COLS; ++index)
 	{
 		// TODO: convert "index" to a "rowIndex" and "colIndex" value
-		int rowIndex = 0;
-		int colIndex = 0;
-
+		int rowIndex = 0 * index;
+		int colIndex = 0 + index;
 		// use the resulting row and column index to print the value
 		std::cout << grid2D[rowIndex][colIndex] << ", ";
 	}
+	std::cout << std::endl;
 
 	// ------------------------------------------------------------------------
 
@@ -71,14 +75,12 @@ int main(int argc, char** argv)
 	//		b0, b1, b2, b3, b4,
 	//		c0, c1, c2, c3, c4,
 	// ------------------------------------------------------------------------
-
-	for (int rowIndex = 0; rowIndex < ROWS; rowIndex++)
+	for (int rowIndex = 0; rowIndex < ROWS; ++rowIndex)
 	{
 		for (int colIndex = 0; colIndex < COLS; colIndex++)
 		{
 			// TODO: calculate "index" based on rowIndex/colIndex value
-			int index = 0; 
-
+			int index = (rowIndex *  COLS) + colIndex;
 			// use the resulting index to print the value
 			std::cout << grid1D[index] << ", ";
 		}
