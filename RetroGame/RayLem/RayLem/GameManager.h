@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib.h"
+#include <cmath>
 
 class GameManager
 {
@@ -22,18 +23,45 @@ private:
 	void Unload();
 
 	Color GetBGTileColour(int titleValue);
+	Color GetGroundTileColour(int titleValue);
+
+
+
+
+	int GetPileORocksLoc(int randomGen);
+	int GetMoonLocationLoc(int randomGen);
+	int GetSmallMoonLoc(int randomGen);
+
 
 private:
 
-	int m_windowWidth = 1000;
-	int m_windowHeight = 1000;
+	Texture2D pileORocks;
+	Texture2D moon;
+	Texture2D smallMoon;
+	Texture2D selectF1;
+	Texture2D selectF2;
 
-	static const int ROWS = 200;
-	static const int COLS = 200;
+
+	int moonLocY;
+	int moonLocX;
+
+	int smallMoonLocY;
+	int smallMoonLocX;
+
+	int pileORocksLocY;
+	int pileORocksLocX;
+
+
+	int m_windowWidth = 500;
+	int m_windowHeight = 500;
+	Image windowIcon = LoadImage("flamie.png");
+
+	static const int ROWS = 10;
+	static const int COLS = 10;
 
 	int m_tiles[ROWS][COLS];
 
-	int m_tileWidth = 15;
-	int m_tileHeight = 15;
+	int m_tileWidth = 50;
+	int m_tileHeight = 50;
 };
 

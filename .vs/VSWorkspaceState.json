@@ -3,12 +3,12 @@
     "",
     "\\IntroToCpp_Arrays_Exercises",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises",
+    "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_04",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_05",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_06",
-    "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\Raygui",
-    "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\Raylib",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\Raylib\\include",
     "\\RetroGame"
   ],
+  "SelectedNode": "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_04\\AIE_04.vcxproj.filters",
   "PreviewInSolutionExplorer": false
 }

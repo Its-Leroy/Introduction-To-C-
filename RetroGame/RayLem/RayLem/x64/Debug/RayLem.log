@@ -1,18 +1,11 @@
 ﻿  GameManager.cpp
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(59,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(60,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(62,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(63,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(67,26): error C2106: '+=': left operand must be l-value
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(69,30): error C2446: '>=': no conversion from 'int' to 'int [200]'
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(69,29): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(70,23): error C3863: array type 'int [200]' is not assignable
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(84,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(85,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(87,48): error C2664: 'Color GameManager::GetBGTileColour(int)': cannot convert argument 1 from 'int [200]' to 'int'
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(87,47): message : There is no context in which this conversion is possible
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.h(24,8): message : see declaration of 'GameManager::GetBGTileColour'
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(88,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(88,18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Main.cpp
-  Generating Code...
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(115,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(116,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(119,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(119,18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(158): warning C4715: 'GameManager::GetBGTileColour': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(178): warning C4715: 'GameManager::GetPileORocksLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(187): warning C4715: 'GameManager::GetMoonLocationLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(168): warning C4715: 'GameManager::GetGroundTileColour': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(196): warning C4715: 'GameManager::GetSmallMoonLoc': not all control paths return a value
+  RayLem.vcxproj -> C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\x64\Debug\RayLem.exe

@@ -141,12 +141,16 @@
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Lemming.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RayLem.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="star.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Lemming.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="star.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
