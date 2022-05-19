@@ -1,7 +1,10 @@
 #include "GameManager.h"
+#include "SpeechWindow.h"
 #include "raylib.h"
 #include <stdlib.h>
 #include <cmath>
+#include <iostream>
+#include <string>
 
 GameManager::GameManager()
 {
@@ -15,13 +18,13 @@ GameManager::~GameManager()
 
 void GameManager::Run()
 {
-	InitWindow(m_windowWidth, m_windowHeight, "Space Spice Trader");
+	InitWindow(m_windowWidth, m_windowHeight, "Deep Space Spice Trader!");
 	SetTargetFPS(60);
 	SetWindowIcon(windowIcon);
 	Load();
 
 	while (!WindowShouldClose())
-	{
+	{		
 		Update(GetFrameTime());
 		Draw();
 	}
@@ -31,12 +34,47 @@ void GameManager::Run()
 
 void GameManager::Load()
 {
+	money = rand() % 1000 ;
+
+
+	SpeechWindow SW;
+
+
 	pileORocks = LoadTexture("Star1.png");
 	moon = LoadTexture("moon.png");
 	smallMoon = LoadTexture("smallMoon.png");
 
+	port = LoadTexture("characterPort.png");
+	HUD1 = LoadTexture("characterHUD1.png");
+	HUD2 = LoadTexture("characterHUD2.png");
+	HUD3 = LoadTexture("characterHUD3.png");
+
+	FRAME1 = LoadTexture("borderFrame1.png");
+	FRAME2 = LoadTexture("borderFrame2.png");
+	FRAME3 = LoadTexture("borderFrame3.png");
+	FRAME4 = LoadTexture("borderFrame4.png");
+	FRAME5 = LoadTexture("borderFrame5.png");
+	FRAME6 = LoadTexture("borderFrame6.png");
+	FRAME7 = LoadTexture("borderFrame7.png");
+
+	blastdoorF1 = LoadTexture("blastDoorF1.png");
+	blastdoorF2 = LoadTexture("blastDoorF2.png");
+	blastdoorF3 = LoadTexture("blastDoorF3.png");
+	blastdoorF4 = LoadTexture("blastDoorF4.png");
+	blastdoorF5 = LoadTexture("blastDoorF5.png");
+	blastdoorF6 = LoadTexture("blastDoorF6.png");
+	blastdoorF7 = LoadTexture("blastDoorF7.png");
+	blastdoorF8 = LoadTexture("blastDoorF8.png");
+
+
+
 	selectF1 = LoadTexture("select1.png");
 	selectF2 = LoadTexture("select2.png");
+	alienPC = LoadTexture("alien.png");
+	spaceShip = LoadTexture("aliensShip.png");
+
+
+	alienRace = LoadTexture("alienRace.png");
 
 
 	moonLocY = rand() % 3;
@@ -48,23 +86,12 @@ void GameManager::Load()
 	pileORocksLocY = rand() % 3;
 	pileORocksLocX = rand() % 3;
 
-	int temp = 1;
 	for (int x = 0; x < ROWS; x++)
 	{
 		for (int i = 0; i < COLS; i++)
 		{
-			if (temp % 2 == 1)
-			{
 				m_tiles[x][i] = 0;
-			}
-			else
-			{
-				m_tiles[x][i] = 1;
-			}
-
-			temp++;
 		}
-		temp++;
 	}
 
 	
@@ -77,29 +104,67 @@ void GameManager::Unload()
 
 void GameManager::Update(float deltaTime)
 {
+	timer += deltaTime;
 
-		//Vector2 mousePos = GetMousePosition();
+	Vector2 mousePos = GetMousePosition();
 
-		//int mX = round(mousePos.x);
-		//int mY = round(mousePos.y);
+	int mX = round(mousePos.x);
+	int mY = round(mousePos.y);
 
-		//int rowIndex = round(mX / m_tileWidth);
-		//int colIndex = round(mY / m_tileHeight);
+	int rowIndex = round(mX / m_tileWidth);
+	int colIndex = round(mY / m_tileHeight);
 
-		//if(IsKeyPressed(KEY_LEFT))
-		//BeginDrawing();
-		//DrawTexture(
-		//	pileORocks,
-		//	(GetPileORocksLoc(rowIndex - 1)),
-		//	(GetPileORocksLoc(colIndex)),
-		//	RAYWHITE);
-		//EndDrawing();
+	tileIndexY = (rowIndex / COLS) + colIndex;
+	tileIndexX = (colIndex / ROWS) + rowIndex;
+		
+	if (tileIndexY > 9) { tileIndexY = 9; }
+	if (tileIndexX > 9) { tileIndexX = 9; }
 
-	//	m_tiles[tileIndex] += 1;
+	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	{
+		spaceShipPathX = tileIndexX;
+		spaceShipPathY = tileIndexY;
+		std::cout << "mouse x: " << mX << std::endl;
+		std::cout << "mouse y: " << mY << std::endl;
+		std::cout << "tile index Y: " << tileIndexY<< std::endl;
+		std::cout << "tile index X: " << tileIndexX << std::endl;
+	}
 
-	//	if (m_tiles[tileIndex] >= 5)
-	//		m_tiles[tileIndex] = 0;
-	//}
+
+
+	if (timer > 0.09f)
+	{
+		if (spaceShipY != spaceShipPathY)
+		{
+			if (spaceShipY >= spaceShipPathY)
+			{
+				spaceShipY -= 1;
+				year += rand() % 20 + 1;
+			}
+			else if (spaceShipY <= spaceShipPathY)
+			{
+				spaceShipY += 1;
+				year += rand() % 20 + 1;
+			}
+		}
+		if (spaceShipY == spaceShipPathY && spaceShipX != spaceShipPathX)
+		{
+			if (spaceShipX > spaceShipPathX)
+			{
+				spaceShipX -= 1;
+				year += rand() % 20 + 1;
+			}
+			else if (spaceShipX < spaceShipPathX)
+			{
+				spaceShipX += 1;
+				year += rand() % 20 + 1;
+			}
+		}
+
+		timer = 0;
+	}
+
+
 }
 
 void GameManager::Draw()
@@ -117,6 +182,7 @@ void GameManager::Draw()
 			int index = (rowIndex * COLS) + colIndex;
 			Color color = GetBGTileColour(m_tiles[rowIndex][colIndex]); // pass in the tilevalue
 			DrawRectangle(xPos, yPos, m_tileWidth, m_tileHeight, color);
+
 		}
 
 	}
@@ -139,6 +205,129 @@ void GameManager::Draw()
 		(GetSmallMoonLoc(smallMoonLocY)) * m_tileHeight,
 		RAYWHITE);
 
+	// CHARACTER DRAW
+	DrawTexture(
+		spaceShip,
+		spaceShipX * m_tileWidth,
+		spaceShipY * m_tileHeight,
+		RAYWHITE);
+	
+
+	DrawRectangle(0, 10 * m_tileHeight, m_tileWidth * 2, m_tileHeight * 2, BLACK);
+	
+	DrawTexture(
+		alienPC,
+		0 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	DrawTexture(
+		port,
+		0 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	// under the HUD
+
+	std::string notyear = std::to_string(year);
+	DrawText("Current Year: ", 2.5 * m_tileWidth, 10.2f * m_tileHeight, 3, GREEN);
+	DrawText(notyear.c_str(), 4 * m_tileWidth, 10.2f * m_tileHeight, 3, GREEN);
+
+	std::string notMoney = std::to_string(money);
+	DrawText("Galactic Credits: ", 2.5 * m_tileWidth, 10.2f * m_tileHeight + 10, 3, GREEN);
+	DrawText(notMoney.c_str(), 2.5 * m_tileWidth + 87, 10.2f * m_tileHeight + 10, 3, GREEN);
+	
+
+	
+	// HUD
+	DrawTexture(
+		HUD1,
+		2 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	DrawTexture(
+		HUD2,
+		4 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	DrawTexture(
+		HUD3,
+		6 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	// other alien
+	DrawTexture(
+		blastdoorF1,
+		8 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	DrawTexture(
+		port,
+		8 * m_tileWidth,
+		10 * m_tileHeight,
+		RAYWHITE);
+
+	DrawTexture(
+		FRAME1,
+		9 * m_tileWidth,
+		9 * m_tileHeight,
+		RAYWHITE);
+	
+	for (int i = 1; i < 9; i++)
+	{
+		DrawTexture(
+			FRAME2,
+			9 * m_tileWidth,
+			i * m_tileHeight,
+			RAYWHITE);
+	}
+
+	DrawTexture(
+		FRAME3,
+		9 * m_tileWidth,
+		0 * m_tileHeight,
+		RAYWHITE);
+
+	for (int i = 1; i < 9; i++)
+	{
+		DrawTexture(
+			FRAME5,
+			i * m_tileWidth,
+			0 * m_tileHeight,
+			RAYWHITE);
+	}
+
+	DrawTexture(
+		FRAME4,
+		0 * m_tileWidth,
+		0 * m_tileHeight,
+		RAYWHITE);
+
+	for (int i = 1; i < 9; i++)
+	{
+		DrawTexture(
+			FRAME7,
+			0 * m_tileWidth,
+			i * m_tileHeight,
+			RAYWHITE);
+	}
+
+	DrawTexture(
+		FRAME6,
+		0 * m_tileWidth,
+		9 * m_tileHeight,
+		RAYWHITE);
+
+	// SELECT
+	DrawTexture(
+		selectF1,
+		tileIndexX * m_tileWidth,
+		tileIndexY * m_tileHeight,
+		RAYWHITE);
 
 
 	// --------------------------------------------------------------------
@@ -151,8 +340,9 @@ Color GameManager::GetBGTileColour(int tileValue)
 {
 	switch (tileValue)
 	{
-	case 0: return GRAY;
+	case 0: return BLACK;
 	case 1: return DARKGRAY;
+	case 2: return BLACK;
 	}
 
 }
@@ -161,9 +351,8 @@ Color GameManager::GetGroundTileColour(int tileValue)
 {
 	switch (tileValue)
 	{
-	case 0: return GREEN;
-	case 1: return DARKGREEN;
-	case 2: return DARKGREEN;
+	case 0: return GRAY;
+	case 1: return GRAY;
 	}
 }
 
@@ -171,8 +360,8 @@ int GameManager::GetPileORocksLoc(int randomGen)
 {
 	switch (randomGen)
 	{
-	case 0: return 1;
-	case 1: return 4;
+	case 0: return 0;
+	case 1: return 3;
 	case 3: return 6;
 	}
 }
@@ -180,17 +369,17 @@ int GameManager::GetMoonLocationLoc(int randomGen)
 {
 	switch (randomGen)
 	{
-	case 0: return 2;
-	case 1: return 8;
-	case 3: return 3;
+	case 0: return 1;
+	case 1: return 4;
+	case 3: return 7;
 	}
 }
 int GameManager::GetSmallMoonLoc(int randomGen)
 {
 	switch (randomGen)
 	{
-	case 0: return 7;
-	case 1: return 9;
-	case 3: return 5;
+	case 0: return 2;
+	case 1: return 5;
+	case 3: return 8;
 	}
 }

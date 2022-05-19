@@ -1,11 +1,22 @@
 ﻿  GameManager.cpp
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(115,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(116,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(119,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(119,18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(158): warning C4715: 'GameManager::GetBGTileColour': not all control paths return a value
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(178): warning C4715: 'GameManager::GetPileORocksLoc': not all control paths return a value
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(187): warning C4715: 'GameManager::GetMoonLocationLoc': not all control paths return a value
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(168): warning C4715: 'GameManager::GetGroundTileColour': not all control paths return a value
-C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(196): warning C4715: 'GameManager::GetSmallMoonLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(111,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(112,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(114,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(115,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(180,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(181,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(184,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(184,18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(233,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(233,33): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(234,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(237,73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(237,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(238,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(238,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(348): warning C4715: 'GameManager::GetBGTileColour': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(367): warning C4715: 'GameManager::GetPileORocksLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(357): warning C4715: 'GameManager::GetGroundTileColour': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(376): warning C4715: 'GameManager::GetMoonLocationLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(385): warning C4715: 'GameManager::GetSmallMoonLoc': not all control paths return a value
   RayLem.vcxproj -> C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\x64\Debug\RayLem.exe
