@@ -36,6 +36,7 @@ private:
 private:
 	int year = 3045;
 	int money = 0;
+	int spice = 1000;
 
 	Texture2D pileORocks;
 	Texture2D moon;
@@ -69,6 +70,10 @@ private:
 	Texture2D blastdoorF6;
 	Texture2D blastdoorF7;
 	Texture2D blastdoorF8;
+	Texture2D blastdoor[8] = {};
+	
+	Texture2D currentDoor;
+	int doorTemp = 0;
 
 	int moonLocY;
 	int moonLocX;
@@ -101,6 +106,7 @@ private:
 	int spaceShipPathY = spaceShipY;
 	int spaceShipPathX = spaceShipX;
 
-	float timer = 1;
+	float timer = 0;
+	float doorTimer = 0;
 };
 

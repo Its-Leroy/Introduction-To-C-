@@ -66,7 +66,9 @@ void GameManager::Load()
 	blastdoorF7 = LoadTexture("blastDoorF7.png");
 	blastdoorF8 = LoadTexture("blastDoorF8.png");
 
-
+	Texture2D blastdoor[8] = {blastdoorF1 , blastdoorF2 , blastdoorF3 , blastdoorF4 , 
+								blastdoorF5 ,blastdoorF6 ,blastdoorF7 ,blastdoorF8};
+	currentDoor = blastdoor[0];
 
 	selectF1 = LoadTexture("select1.png");
 	selectF2 = LoadTexture("select2.png");
@@ -105,6 +107,7 @@ void GameManager::Unload()
 void GameManager::Update(float deltaTime)
 {
 	timer += deltaTime;
+	doorTimer += deltaTime;
 
 	Vector2 mousePos = GetMousePosition();
 
@@ -128,6 +131,8 @@ void GameManager::Update(float deltaTime)
 		std::cout << "mouse y: " << mY << std::endl;
 		std::cout << "tile index Y: " << tileIndexY<< std::endl;
 		std::cout << "tile index X: " << tileIndexX << std::endl;
+		std::cout << GetMoonLocationLoc(moonLocX) << std::endl;
+		std::cout << GetMoonLocationLoc(moonLocY) << std::endl;
 	}
 
 
@@ -140,11 +145,13 @@ void GameManager::Update(float deltaTime)
 			{
 				spaceShipY -= 1;
 				year += rand() % 20 + 1;
+				spice -= 1;
 			}
 			else if (spaceShipY <= spaceShipPathY)
 			{
 				spaceShipY += 1;
 				year += rand() % 20 + 1;
+				spice -= 1;
 			}
 		}
 		if (spaceShipY == spaceShipPathY && spaceShipX != spaceShipPathX)
@@ -153,17 +160,34 @@ void GameManager::Update(float deltaTime)
 			{
 				spaceShipX -= 1;
 				year += rand() % 20 + 1;
+				spice -= 1;
 			}
 			else if (spaceShipX < spaceShipPathX)
 			{
 				spaceShipX += 1;
 				year += rand() % 20 + 1;
+				spice -= 1;
 			}
 		}
 
 		timer = 0;
 	}
 
+	if (doorTimer > 0.25f)
+	{
+		if (spaceShipY == (GetMoonLocationLoc(moonLocY)) && spaceShipX == (GetMoonLocationLoc(moonLocX)))
+		{
+			if (doorTemp != 7)
+			{
+				doorTemp += 1;
+			}
+		}
+		else
+		{
+			doorTemp = 0;
+		}
+		doorTimer = 0;
+	}
 
 }
 
@@ -235,7 +259,16 @@ void GameManager::Draw()
 
 	std::string notMoney = std::to_string(money);
 	DrawText("Galactic Credits: ", 2.5 * m_tileWidth, 10.2f * m_tileHeight + 10, 3, GREEN);
-	DrawText(notMoney.c_str(), 2.5 * m_tileWidth + 87, 10.2f * m_tileHeight + 10, 3, GREEN);
+	DrawText(notMoney.c_str(), 2.5 * m_tileWidth + 90, 10.2f * m_tileHeight + 10, 3, BLUE);
+
+	std::string notSpice = std::to_string(spice);
+	DrawText("Your spice: ", 2.5 * m_tileWidth, 10.2f * m_tileHeight + 20, 3, GREEN);
+	DrawText(notSpice.c_str(), 2.5 * m_tileWidth + 65, 10.2f * m_tileHeight + 20, 3, BLUE);
+
+	DrawText("_________________________________________", 2.5 * m_tileWidth, 10.2f * m_tileHeight + 25, 3, GREEN);
+
+	DrawText("Spice Prices!", 2.5 * m_tileWidth, 10.2f * m_tileHeight + 50, 15, GREEN);
+
 	
 
 	
@@ -259,11 +292,80 @@ void GameManager::Draw()
 		RAYWHITE);
 
 	// other alien
+
 	DrawTexture(
-		blastdoorF1,
+		alienPC,
 		8 * m_tileWidth,
 		10 * m_tileHeight,
 		RAYWHITE);
+
+
+	if (doorTemp == 0)
+	{
+		DrawTexture(
+			blastdoorF1,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 1)
+	{
+		DrawTexture(
+			blastdoorF2,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 2)
+	{
+		DrawTexture(
+			blastdoorF3,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 3)
+	{
+		DrawTexture(
+			blastdoorF4,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 4)
+	{
+		DrawTexture(
+			blastdoorF5,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 5)
+	{
+		DrawTexture(
+			blastdoorF6,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 6)
+	{
+		DrawTexture(
+			blastdoorF7,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (doorTemp == 7)
+	{
+		DrawTexture(
+			blastdoorF8,
+			8 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+
+
 
 	DrawTexture(
 		port,
