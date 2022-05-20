@@ -35,8 +35,21 @@ private:
 
 private:
 	int year = 3045;
-	int money = 0;
-	int spice = 1000;
+	int money = 5;
+	int spice = 150;
+	bool trading = false;
+
+
+
+	int moonDemand;
+	int moonFlux;
+
+
+	int moonAlienSellPrice = 12;
+
+
+
+	int spiceB;
 
 	Texture2D pileORocks;
 	Texture2D moon;
@@ -70,9 +83,13 @@ private:
 	Texture2D blastdoorF6;
 	Texture2D blastdoorF7;
 	Texture2D blastdoorF8;
-	Texture2D blastdoor[8] = {};
 	
 	Texture2D currentDoor;
+
+	int menuFlag1 = 1;
+	int menuFlag2 = 0;
+	int menuFlag3 = 0;
+
 	int doorTemp = 0;
 
 	int moonLocY;

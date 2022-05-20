@@ -6,8 +6,10 @@
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_04",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_05",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_06",
-    "\\RetroGame"
+    "\\RetroGame",
+    "\\RetroGame\\RayLem",
+    "\\RetroGame\\RayLem\\RayLem"
   ],
-  "SelectedNode": "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_06\\main.cpp",
+  "SelectedNode": "\\RetroGame\\RayLem\\RayLem\\GameManager.cpp",
   "PreviewInSolutionExplorer": false
 }

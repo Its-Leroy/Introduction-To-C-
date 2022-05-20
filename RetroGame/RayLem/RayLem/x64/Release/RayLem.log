@@ -1,0 +1,39 @@
+﻿  GameManager.cpp
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(114,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(115,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(117,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(118,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(204,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(205,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(208,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(208,18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(257,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(257,33): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(258,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(261,73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(261,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(262,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(262,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(265,67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(265,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(266,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(266,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(268,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(268,60): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(270,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(270,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Lemming.cpp
+  Player.cpp
+  RayLem.cpp
+  Main.cpp
+  SpeechWindow.cpp
+  star.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(487): warning C4715: 'GameManager::GetSmallMoonLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(450): warning C4715: 'GameManager::GetBGTileColour': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(478): warning C4715: 'GameManager::GetMoonLocationLoc': not all control paths return a value
+C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\RayLem\GameManager.cpp(469): warning C4715: 'GameManager::GetPileORocksLoc': not all control paths return a value
+  All 100 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  RayLem.vcxproj -> C:\Users\s200092\source\repos\Introduction-To-C-\RetroGame\RayLem\x64\Release\RayLem.exe
