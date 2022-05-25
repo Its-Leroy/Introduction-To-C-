@@ -32,13 +32,17 @@ private:
 	int GetMoonLocationLoc(int randomGen);
 	int GetSmallMoonLoc(int randomGen);
 
+	bool IsSomeoneThere(int x, int y);
+	void WhosThere(int x, int y);
+	int GetPrice(int alienRef);
+	int currentAlien = 0;
 
 private:
 	int year = 3045;
 	int money = 5;
 	int spice = 150;
 	bool trading = false;
-
+	
 
 
 	int moonDemand;
@@ -46,10 +50,12 @@ private:
 
 
 	int moonAlienSellPrice = 12;
-
-
+	int invaderSellPrice = 20;
+	int GrugSellPrice = 10;
+	int tempPrice;
 
 	int spiceB;
+	Texture2D Nova;
 
 	Texture2D pileORocks;
 	Texture2D moon;
@@ -86,12 +92,21 @@ private:
 	
 	Texture2D currentDoor;
 
+	Texture2D invaderF1;
+	Texture2D invaderF2;
+	Texture2D invaderF3;
+	Texture2D invaderF4;
+	int invaderTemp = 0;
+
+
 	int menuFlag1 = 1;
 	int menuFlag2 = 0;
 	int menuFlag3 = 0;
 
 	int doorTemp = 0;
 
+	bool ending = false;
+	int scale = 0;
 	int moonLocY;
 	int moonLocX;
 
