@@ -41,16 +41,39 @@ void TestResult(const int* result, int* const expected)
 
 const int* BinarySearch(const int* arr, int count, int searchVal)
 {
+
 	// TODO: Implement a binary search
 	// the array is assumed to be sorted
-	for (int i = 0; i != count; i++)
+	int left = 0;
+	int right = count - 1;
+
+	while (left <= right)
 	{
-		if (arr[i] == searchVal)
+		int middle = int((left + right) / 2);
+
+		if (arr[middle] == searchVal)
 		{
-			return &arr[i];
+			return &arr[middle];
+		}
+		if (arr[middle] < searchVal)
+		{
+			left = middle + 1;
+		}
+		if (arr[middle] > searchVal)
+		{
+			right = middle - 1;
 		}
 	}
 	return nullptr;
+
+	//for (int i = 0; i != count; i++)
+	//{
+	//	if (arr[i] == searchVal)
+	//	{
+	//		return &arr[i];
+	//	}
+	//}
+	//return nullptr;
 	// This method should:
 	//	- Return: nullptr if the value is not found
 	//  - Return: pointer to the found value in the array

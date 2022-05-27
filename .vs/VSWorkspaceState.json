@@ -3,6 +3,7 @@
     "",
     "\\IntroToCpp_Arrays_Exercises",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises",
+    "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_03",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_04",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_05",
     "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\AIE_06",
@@ -10,6 +11,6 @@
     "\\RetroGame\\RayLem",
     "\\RetroGame\\RayLem\\RayLem"
   ],
-  "SelectedNode": "\\RetroGame\\RayLem\\RayLem\\GameManager.h",
+  "SelectedNode": "\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises\\IntroToCpp_Arrays_Exercises.sln",
   "PreviewInSolutionExplorer": false
 }

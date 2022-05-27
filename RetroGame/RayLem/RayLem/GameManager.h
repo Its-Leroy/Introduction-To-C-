@@ -51,7 +51,7 @@ private:
 
 	int moonAlienSellPrice = 12;
 	int invaderSellPrice = 20;
-	int GrugSellPrice = 10;
+	int alfSellPrice = 50;
 	int tempPrice;
 
 	int spiceB;
@@ -96,8 +96,25 @@ private:
 	Texture2D invaderF2;
 	Texture2D invaderF3;
 	Texture2D invaderF4;
-	int invaderTemp = 0;
 
+	Texture2D alfF1;
+	Texture2D alfF2;
+	Texture2D alfF3;
+	Texture2D alfF4;
+	Texture2D alfF5;
+	Texture2D alfF6;
+
+	Texture2D catF1;
+	Texture2D catF2;
+
+	Texture2D alienF1;
+	Texture2D alienF2;
+	Texture2D alienF3;
+
+	int invaderTemp = 0;
+	int alfTemp = 0;
+	int catTemp = 0;
+	int alienTemp = 0;
 
 	int menuFlag1 = 1;
 	int menuFlag2 = 0;

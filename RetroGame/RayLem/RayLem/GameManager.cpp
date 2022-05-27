@@ -72,6 +72,20 @@ void GameManager::Load()
 	invaderF3 = LoadTexture("InvaderF3.png");
 	invaderF4 = LoadTexture("InvaderF4.png");
 
+	alfF1 = LoadTexture("POS1.png");
+	alfF2 = LoadTexture("POS2.png");
+	alfF3 = LoadTexture("POS3.png");
+	alfF4 = LoadTexture("POS4.png");
+	alfF5 = LoadTexture("POS5.png");
+	alfF6 = LoadTexture("POS6.png");
+	
+	alienF1 = LoadTexture("alienF1.png");
+	alienF2 = LoadTexture("alienF2.png");
+	alienF3 = LoadTexture("alienF3.png");
+
+	catF1 = LoadTexture("catF1.png");
+	catF2 = LoadTexture("catF2.png");
+
 	Texture2D blastdoor[8] = {blastdoorF1 , blastdoorF2 , blastdoorF3 , blastdoorF4 , 
 								blastdoorF5 ,blastdoorF6 ,blastdoorF7 ,blastdoorF8};
 	currentDoor = blastdoor[0];
@@ -130,7 +144,16 @@ void GameManager::Update(float deltaTime)
 	if (tileIndexX > 9) { tileIndexX = 9; }
 	if (IsKeyPressed(KEY_SPACE))
 	{
-		ending = true;
+		year += rand() % 70 + 1;
+
+		moonLocY = rand() % 3;
+		moonLocX = rand() % 3;
+
+		smallMoonLocY = rand() % 3;
+		smallMoonLocX = rand() % 3;
+
+		pileORocksLocY = rand() % 3;
+		pileORocksLocX = rand() % 3;
 	}
 
 	if (ending == true && scale != 40)
@@ -167,7 +190,7 @@ void GameManager::Update(float deltaTime)
 					spaceShipY -= 1;
 					year += rand() % 20 + 1;
 					moonDemand = rand() % 3 + 1;
-					moonFlux = rand() % 5;
+					moonFlux = rand() % 7;
 
 					if (moonDemand = true)
 					{
@@ -179,6 +202,35 @@ void GameManager::Update(float deltaTime)
 						if (moonAlienSellPrice - 10 > 0)
 						{
 							moonAlienSellPrice -= 10;
+						}
+					}
+					moonDemand = rand() % 3 + 1;
+					moonFlux = rand() % 15;
+					if (moonDemand = true)
+					{
+						alfSellPrice += moonFlux;
+					}
+
+					if (moonDemand == 2 || moonDemand == 3)
+					{
+						if (alfSellPrice - 10 > 0)
+						{
+							alfSellPrice -= 10;
+						}
+					}
+
+					moonDemand = rand() % 3 + 1;
+					moonFlux = rand() % 7;
+					if (moonDemand = true)
+					{
+						invaderSellPrice += moonFlux;
+					}
+
+					if (moonDemand == 2 || moonDemand == 3)
+					{
+						if (invaderSellPrice - 10 > 0)
+						{
+							invaderSellPrice -= 10;
 						}
 					}
 
@@ -205,6 +257,35 @@ void GameManager::Update(float deltaTime)
 							moonAlienSellPrice -= 10;
 						}
 					}
+					moonDemand = rand() % 3 + 1;
+					moonFlux = rand() % 15;
+					if (moonDemand = true)
+					{
+						alfSellPrice += moonFlux;
+					}
+
+					if (moonDemand == 2 || moonDemand == 3)
+					{
+						if (alfSellPrice - 10 > 0)
+						{
+							alfSellPrice -= 10;
+						}
+					}
+
+					moonDemand = rand() % 3 + 1;
+					moonFlux = rand() % 7;
+					if (moonDemand = true)
+					{
+						invaderSellPrice += moonFlux;
+					}
+
+					if (moonDemand == 2 || moonDemand == 3)
+					{
+						if (invaderSellPrice - 10 > 0)
+						{
+							invaderSellPrice -= 10;
+						}
+					}
 				}
 			}
 		}
@@ -221,7 +302,7 @@ void GameManager::Update(float deltaTime)
 					spice -= 1;
 
 					moonDemand = rand() % 3 + 1;
-					moonFlux = rand() % 5;
+					moonFlux = rand() % 7;
 
 					if (moonDemand = true)
 					{
@@ -266,6 +347,13 @@ void GameManager::Update(float deltaTime)
 
 		if (doorTimer > 0.25f)
 		{
+
+			alienTemp += 1;
+			if (alienTemp == 3)
+			{
+				alienTemp = 0;
+			}
+
 			if (menuFlag3 == 1)
 			{
 
@@ -273,10 +361,22 @@ void GameManager::Update(float deltaTime)
 				{
 					WhosThere(spaceShipX, spaceShipY);
 					tempPrice = GetPrice(currentAlien);
+
 					invaderTemp += 1;
+					alfTemp += 1;
+					catTemp += 1;
+
 					if (invaderTemp == 4)
 					{
 						invaderTemp = 0;
+					}
+					if (alfTemp == 6)
+					{
+						alfTemp = 0;
+					}
+					if (catTemp == 2)
+					{
+						catTemp = 0;
 					}
 
 					if (IsKeyDown(KEY_F5))
@@ -287,12 +387,28 @@ void GameManager::Update(float deltaTime)
 							money -= tempPrice;
 						}
 					}
-					if (IsKeyDown(KEY_F6))
+					if (IsKeyDown(KEY_F7))
 					{
 						if (spice > 0)
 						{
 							spice--;
 							money += tempPrice;
+						}
+					}
+					if (IsKeyDown(KEY_F6))
+					{
+						if (money - (tempPrice * 10) >= 0)
+						{
+							spice += 10;
+							money -= (tempPrice * 10);
+						}
+					}
+					if (IsKeyDown(KEY_F8))
+					{
+						if (spice > 0)
+						{
+							spice -= 10;
+							money += (tempPrice * 10);
 						}
 					}
 					trading = true;
@@ -412,12 +528,30 @@ void GameManager::Draw()
 	
 
 	DrawRectangle(0, 10 * m_tileHeight, m_tileWidth * 2, m_tileHeight * 2, BLACK);
-	
-	DrawTexture(
-		alienPC,
-		0 * m_tileWidth,
-		10 * m_tileHeight,
-		RAYWHITE);
+	if (alienTemp == 0)
+	{
+		DrawTexture(
+			alienF1,
+			0 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (alienTemp == 1)
+	{
+		DrawTexture(
+			alienF2,
+			0 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
+	else if (alienTemp == 2)
+	{
+		DrawTexture(
+			alienF3,
+			0 * m_tileWidth,
+			10 * m_tileHeight,
+			RAYWHITE);
+	}
 
 	DrawTexture(
 		port,
@@ -497,33 +631,61 @@ void GameManager::Draw()
 		{
 			if (spaceShipY == (GetMoonLocationLoc(moonLocY)) && spaceShipX == (GetMoonLocationLoc(moonLocX)))
 			{
-				DrawText("Greetings Captain, we're selling & buying for: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 30, 3, GREEN);
+				DrawText("No catnip? Oh well, we're selling & buying for: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 30, 3, GREEN);
 
 				std::string notSelling = std::to_string(moonAlienSellPrice);
 				DrawText("Price: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 40, 20, GREEN);
 				DrawText(notSelling.c_str(), 2.5 * m_tileWidth + 70, 10.2f * m_tileHeight + 40, 20, BLUE);
 
-				DrawText("[Buy  F5] ", 2.8 * m_tileWidth + 51, 10.2f * m_tileHeight + 60, 3, GREEN);
-				DrawText("[Sell F6] ", 2.8 * m_tileWidth + 102, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Buy  F5] ", 2.8 * m_tileWidth + 5, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Buy 10x F6] ", 2.8 * m_tileWidth + 55, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell F7] ", 2.8 * m_tileWidth + 120, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell 10x F8] ", 2.8 * m_tileWidth + 165, 10.2f * m_tileHeight + 60, 3, GREEN);
+
 				std::string notSpice = std::to_string(spice);
 				std::string notMoney = std::to_string(money);
+				DrawText("Your spice:", 2.5 * m_tileWidth + 0, 10.2f * m_tileHeight + 70, 3, GREEN);
 				DrawText(notSpice.c_str(), 2.8 * m_tileWidth + 51, 10.2f * m_tileHeight + 70, 3, GREEN);
-				DrawText(notMoney.c_str(), 2.8 * m_tileWidth + 102, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText("Your money:", 3.5 * m_tileWidth + 88, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText(notMoney.c_str(), 3.5 * m_tileWidth + 151, 10.2f * m_tileHeight + 70, 3, GREEN);
 			}
 			else if (spaceShipY == (GetPileORocksLoc(pileORocksLocY)) && spaceShipX == (GetPileORocksLoc(pileORocksLocX)))
 			{
 				DrawText("BEEP BOOP BEEP BEEP BOOP BOOP?: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 30, 3, GREEN);
 
 				std::string notSelling = std::to_string(invaderSellPrice);
-				DrawText("Price: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 40, 20, GREEN);
+				DrawText("BOOP: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 40, 20, GREEN);
 				DrawText(notSelling.c_str(), 2.5 * m_tileWidth + 70, 10.2f * m_tileHeight + 40, 20, BLUE);
 
-				DrawText("[Buy  F5] ", 2.8 * m_tileWidth + 51, 10.2f * m_tileHeight + 60, 3, GREEN);
-				DrawText("[Sell F6] ", 2.8 * m_tileWidth + 102, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Buy  F5] ", 2.8 * m_tileWidth + 5, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Buy 10x F6] ", 2.8 * m_tileWidth + 55, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell F7] ", 2.8 * m_tileWidth + 120, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell 10x F8] ", 2.8 * m_tileWidth + 165, 10.2f * m_tileHeight + 60, 3, GREEN);
 				std::string notSpice = std::to_string(spice);
 				std::string notMoney = std::to_string(money);
+				DrawText("Your spice:", 2.5 * m_tileWidth + 0, 10.2f * m_tileHeight + 70, 3, GREEN);
 				DrawText(notSpice.c_str(), 2.8 * m_tileWidth + 51, 10.2f * m_tileHeight + 70, 3, GREEN);
-				DrawText(notMoney.c_str(), 2.8 * m_tileWidth + 102, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText("Your money:", 3.5 * m_tileWidth + 88, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText(notMoney.c_str(), 3.5 * m_tileWidth + 151, 10.2f * m_tileHeight + 70, 3, GREEN);
+			}
+			else if (spaceShipY == (GetSmallMoonLoc(smallMoonLocY)) && spaceShipX == (GetSmallMoonLoc(smallMoonLocX)))
+			{
+				DrawText("BLAAARG! UPGARRRRRR! BLAAAAR!: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 30, 3, GREEN);
+
+				std::string notSelling = std::to_string(alfSellPrice);
+				DrawText("Ye Price: ", 2.5 * m_tileWidth + 5, 10.2f * m_tileHeight + 40, 20, GREEN);
+				DrawText(notSelling.c_str(), 2.5 * m_tileWidth + 120, 10.2f * m_tileHeight + 40, 20, BLUE);
+
+				DrawText("[Buy  F5] ", 2.8 * m_tileWidth + 5, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Buy 10x F6] ", 2.8 * m_tileWidth + 55, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell F7] ", 2.8 * m_tileWidth + 120, 10.2f * m_tileHeight + 60, 3, GREEN);
+				DrawText("[Sell 10x F8] ", 2.8 * m_tileWidth + 165, 10.2f * m_tileHeight + 60, 3, GREEN);
+				std::string notSpice = std::to_string(spice);
+				std::string notMoney = std::to_string(money);
+				DrawText("Your spice:", 2.5 * m_tileWidth + 0, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText(notSpice.c_str(), 2.8 * m_tileWidth + 51, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText("Your money:", 3.5 * m_tileWidth + 88, 10.2f * m_tileHeight + 70, 3, GREEN);
+				DrawText(notMoney.c_str(), 3.5 * m_tileWidth + 151, 10.2f * m_tileHeight + 70, 3, GREEN);
 			}
 
 		}
@@ -574,11 +736,23 @@ void GameManager::Draw()
 
 	if (spaceShipY == (GetMoonLocationLoc(moonLocY)) && spaceShipX == (GetMoonLocationLoc(moonLocX)))
 	{
-		DrawTexture(
-			alienPC,
-			8 * m_tileWidth,
-			10 * m_tileHeight,
-			RAYWHITE);
+		if (catTemp == 0)
+		{
+			DrawTexture(
+				catF1,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (catTemp == 1)
+		{
+			DrawTexture(
+				catF2,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+
 	}
 	else if (spaceShipY == (GetPileORocksLoc(pileORocksLocY)) && spaceShipX == (GetPileORocksLoc(pileORocksLocX)))
 	{
@@ -615,6 +789,57 @@ void GameManager::Draw()
 				RAYWHITE);
 		}
 
+	}
+	else if (spaceShipY == (GetSmallMoonLoc(smallMoonLocY)) && spaceShipX == (GetSmallMoonLoc(smallMoonLocX)))
+	{
+		if (invaderTemp == 0)
+		{
+			DrawTexture(
+				alfF1,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (invaderTemp == 1)
+		{
+			DrawTexture(
+				alfF2,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (invaderTemp == 2)
+		{
+			DrawTexture(
+				alfF3,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (invaderTemp == 3)
+		{
+			DrawTexture(
+				alfF4,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (invaderTemp == 4)
+		{
+			DrawTexture(
+				alfF5,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
+		else if (invaderTemp == 5)
+		{
+			DrawTexture(
+				alfF6,
+				8 * m_tileWidth,
+				10 * m_tileHeight,
+				RAYWHITE);
+		}
 	}
 	
 
@@ -852,7 +1077,7 @@ bool GameManager::IsSomeoneThere(int x, int y)
 	 }
 	 else if (alienRef == 2)
 	 {
-		 return GrugSellPrice;
+		 return alfSellPrice;
 	 }
 
  }
