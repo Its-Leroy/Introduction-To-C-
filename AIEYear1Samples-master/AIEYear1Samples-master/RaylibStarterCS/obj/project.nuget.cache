@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HASdZjm8lRJWbue7T29JJpbWtKvsQcIW+iVJXhfo0Dn9RHgfq16vFwPSHQ1xjpyw58qM11IPmVRbhb1vFlNBTw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\s200092\\Downloads\\AIEYear1Samples-master\\AIEYear1Samples-master\\RaylibStarterCS\\RaylibStarterCS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s200092\\.nuget\\packages\\raylib-cs\\3.5.0\\raylib-cs.3.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
